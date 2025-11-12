@@ -10,6 +10,7 @@ import React, {
   Dispatch,
   SetStateAction
 } from 'react';
+import { getDataPath } from '@/utils/pathUtils';
 
 interface PropertyContextType {
   properties: propertyData[];
@@ -40,7 +41,7 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   useEffect(() => {
     const loadProperties = async () => {
       try {
-        const res = await fetch('/data/propertydata.json');
+        const res = await fetch(getDataPath('/data/propertydata.json'));
         const data: propertyData[] = await res.json();
         setAllProperties(data);
         setProperties(data); // set initially unfiltered list

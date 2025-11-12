@@ -5,6 +5,7 @@ import Image from 'next/image';
 import HeroSub from '../../shared/hero-sub';
 import { PropertyContext } from '@/context-api/PropertyContext';
 import PropertyCard from '../../home/property-list/property-card';
+import { getDataPath, getImgPath } from '@/utils/pathUtils';
 
 export default function AdvanceSearch({ category }: { category?: string }) {
     const [price, setPrice] = useState(50);
@@ -18,7 +19,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('/data/pagedata.json')
+                const res = await fetch(getDataPath('/data/pagedata.json'))
                 if (!res.ok) throw new Error('Failed to fetch')
 
                 const data = await res.json()
@@ -312,7 +313,7 @@ export default function AdvanceSearch({ category }: { category?: string }) {
                                 </div>
                                 :
                                 <div className='flex flex-col gap-5 items-center justify-center pt-20'>
-                                    <Image src={"/images/not-found/no-results.png"} alt='no-result' width={100} height={100} />
+                                    <Image src={getImgPath("/images/not-found/no-results.png")} alt='no-result' width={100} height={100} />
                                     <p className='text-gray'>No result found</p>
                                 </div>
                             }

@@ -7,6 +7,7 @@ import Availability from '@/app/components/property-details/availability';
 import Tabbar from '@/app/components/property-details/tabbar';
 import TextSection from '@/app/components/property-details/text-section';
 import DiscoverProperties from '@/app/components/home/property-option';
+import { getImgPath } from '@/utils/pathUtils';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -46,7 +47,7 @@ export default async function Details({ params }: Props) {
           <div className="h-[580px] max-w-5xl mx-auto w-full">
             {item?.property_img &&
               <Image
-                src={item?.property_img}
+                src={getImgPath(item?.property_img)}
                 alt={item?.property_title}
                 width={1000}
                 height={600}

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import HeroSub from "./components/shared/hero-sub";
 import Link from "next/link";
 import Image from "next/image";
+import { getImgPath } from "@/utils/pathUtils";
 
 export const metadata: Metadata = {
   title: "404 Page | Property-pro",
@@ -26,7 +27,7 @@ const ErrorPage = () => {
             <div className="w-full px-4 md:w-5/12 lg:w-6/12">
               <div className="relative mx-auto aspect-[129/138] max-w-96 text-center">
                 <Image
-                  src="/images/svgs/404.svg"
+                  src={getImgPath("/images/svgs/404.svg")}
                   alt="image"
                   width={250}
                   height={0}

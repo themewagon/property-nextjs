@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import "../../../style/index.css";
 import Link from "next/link";
+import { getImgPath } from "@/utils/pathUtils";
 
 export default function History() {
   return (
@@ -47,7 +48,7 @@ export default function History() {
               </div>
               <div>
                 <Image
-                  src="/images/history/logo.svg"
+                  src={getImgPath("/images/history/logo.svg")}
                   alt="company"
                   width={93}
                   height={130}

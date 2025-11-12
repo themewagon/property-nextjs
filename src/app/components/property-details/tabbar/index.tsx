@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
+import { getImgPath } from '@/utils/pathUtils';
 
 // Define the type for each tab's content
 type TabContent = {
@@ -27,25 +28,25 @@ const content: Record<TabLabel, TabContent> = {
             'Restaurant',
             'Bars'
         ],
-        image: '/images/tabbar/tab-1.jpg'
+        image: getImgPath('/images/tabbar/tab-1.jpg')
     },
     'Project Park': {
         title: 'Project Park Overview',
         description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
         features: ['Gardens', 'Playgrounds', 'Walking Trails'],
-        image: '/images/tabbar/tab-2.jpg'
+        image: getImgPath('/images/tabbar/tab-2.jpg')
     },
     'Project Gallery': {
         title: 'Explore the Gallery',
         description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
         features: ['Art Exhibitions', 'Cultural Events'],
-        image: '/images/tabbar/tab-3.jpg'
+        image: getImgPath('/images/tabbar/tab-3.jpg')
     },
     'Project Villa': {
         title: 'Luxury Villas',
         description: 'Sometimes by accident, sometimes chunks as necessary making this the first true generator on the Internet.',
         features: ['Private Pools', 'Gourmet Kitchens', 'Spacious Living Areas'],
-        image: '/images/tabbar/tab-4.jpg'
+        image: getImgPath('/images/tabbar/tab-4.jpg')
     }
 };
 
@@ -134,7 +135,7 @@ export default function Tabbar() {
                                     </div>
                                     <div className="lg:w-1/2 h-[450px] md:block hidden px-4">
                                         <Image
-                                            src={content[tab.label]?.image || '/images/blog/blog-1.jpg'}
+                                            src={content[tab.label]?.image || getImgPath('/images/blog/blog-1.jpg')}
                                             alt={`Image for ${tab.label}`}
                                             width={570}
                                             height={367}

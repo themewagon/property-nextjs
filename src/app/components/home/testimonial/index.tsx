@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { getImgPath } from '@/utils/pathUtils';
 
 export default function Testimonials() {
 
@@ -9,7 +10,7 @@ export default function Testimonials() {
                 <div className="flex justify-between">
                     <div className="flex-1 lg:block hidden" data-aos="fade-right">
                         <Image
-                            src="/images/testimonial/vector-smart.png"
+                            src={getImgPath("/images/testimonial/vector-smart.png")}
                             alt="testimonial"
                             width={451}
                             height={470}
@@ -19,7 +20,7 @@ export default function Testimonials() {
                     </div>
                     <div className="flex-1" data-aos="fade-left">
                         <Image
-                            src="/images/testimonial/quote.svg"
+                            src={getImgPath("/images/testimonial/quote.svg")}
                             alt="quote"
                             className="mb-4 md:mb-6"
                             height={135}

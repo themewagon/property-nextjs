@@ -3,6 +3,7 @@ import { PropertyContext } from '@/context-api/PropertyContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
+import { getDataPath, getImgPath } from '@/utils/pathUtils';
 
 export default function DiscoverProperties() {
     const { properties, updateFilter } = useContext(PropertyContext)!;
@@ -10,7 +11,7 @@ export default function DiscoverProperties() {
     useEffect(() => {
     const fetchData = async () => {
         try {
-            const res = await fetch('/data/propertydata.json');
+            const res = await fetch(getDataPath('/data/propertydata.json'));
             if (!res.ok) throw new Error('Failed to fetch');
 
             const data = await res.json();
@@ -49,7 +50,7 @@ export default function DiscoverProperties() {
                         <div key={index} className="image-item block" onClick={() => updateFilter('category', property.category)} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
                             <Link href={`/properties/properties-list`} className='group'>
                                 <Image
-                                    src={property.category_img}
+                                    src={getImgPath(property.category_img)}
                                     alt="Image"
                                     className='p-4 border-2 rounded-lg border-border dark:border-dark_border mb-6 group-hover:-translate-y-1 group-hover:duration-500'
                                     height={85}

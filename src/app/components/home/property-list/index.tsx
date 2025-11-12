@@ -1,13 +1,14 @@
 "use client";
 import { useEffect, useState } from 'react';
 import PropertyCard from './property-card';
+import { getDataPath } from '@/utils/pathUtils';
 
 const Listing = () => {
     const [properties, setProperties] = useState<any[]>([])
     useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/data/propertydata.json')
+        const res = await fetch(getDataPath('/data/propertydata.json'))
         if (!res.ok) throw new Error('Failed to fetch')
 
         const data = await res.json()

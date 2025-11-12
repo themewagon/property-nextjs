@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext } from 'react';
 import { PropertyContext } from '@/context-api/PropertyContext';
+import { getImgPath } from '@/utils/pathUtils';
 
 const Footer = () => {
   const { updateFilter } = useContext(PropertyContext)!;
@@ -13,7 +14,7 @@ const Footer = () => {
           <div className="md:col-span-4 col-span-12 flex items-center px-4 sm:px-0">
             <Link href="/" className="mb-6 inline-block max-w-40">
               <Image
-                src="/images/logo/logo-white.svg"
+                src={getImgPath("/images/logo/logo-white.svg")}
                 alt="logo"
                 width={156}
                 height={38}

@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import "../../../../style/index.css";
 import { propertyData } from "@/app/types/property/propertyData";
+import { getImgPath } from "@/utils/pathUtils";
 
 interface PropertyCardProps {
   property: propertyData;
@@ -21,7 +22,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
         <div className={`relative ${viewMode=="list" && 'w-[30%]'}`}>
           <div className={`imageContainer h-[250px] w-full ${viewMode =="list" && 'h-full md:h-52'}`}>
             <Image
-              src={property?.property_img}
+              src={getImgPath(property?.property_img)}
               alt={`Image of ${property.property_title}`}
               width={400}
               height={250}
@@ -66,7 +67,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
             <div className="flex flex-col">
               <p className="md:text-xl text-lg font-bold flex gap-2">
                 <Image
-                  src="/images/svgs/icon-bed.svg"
+                  src={getImgPath("/images/svgs/icon-bed.svg")}
                   alt="Bedrooms Icon"
                   height={18}
                   width={18}
@@ -81,7 +82,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
             <div className="flex flex-col">
               <p className="md:text-xl text-lg font-bold flex gap-2">
                 <Image
-                  src="/images/svgs/icon-tub.svg"
+                  src={getImgPath("/images/svgs/icon-tub.svg")}
                   alt="Bathrooms Icon"
                   height={18}
                   width={18}
@@ -96,7 +97,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
             <div className="flex flex-col">
               <p className="md:text-xl text-lg font-bold flex gap-2">
                 <Image
-                  src="/images/svgs/icon-layout.svg"
+                  src={getImgPath("/images/svgs/icon-layout.svg")}
                   alt="Living Area Icon"
                   height={18}
                   width={18}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContext } from 'react';
 import { PropertyContext } from "@/context-api/PropertyContext";
+import { getImgPath, getDataPath } from "@/utils/pathUtils";
 
 const Hero = () => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/data/propertydata.json')
+        const res = await fetch(getDataPath('/data/propertydata.json'))
         if (!res.ok) throw new Error('Failed to fetch')
 
         const data = await res.json()
@@ -104,7 +105,7 @@ const Hero = () => {
                       <div className="relative flex items-center">
                         <div className="absolute left-0 p-4">
                           <Image
-                            src="/images/svgs/icon-location.svg"
+                            src={getImgPath("/images/svgs/icon-location.svg")}
                             alt="Icon"
                             height={24}
                             width={24}
@@ -158,7 +159,7 @@ const Hero = () => {
                       <div className="relative flex items-center">
                         <div className="absolute left-0 p-4">
                           <Image
-                            src="/images/svgs/icon-location.svg"
+                            src={getImgPath("/images/svgs/icon-location.svg")}
                             alt="Icon"
                             height={24}
                             width={24}
@@ -255,7 +256,7 @@ const Hero = () => {
           </div>
           <div className="lg:block hidden col-span-6 absolute xl:-right-60 right-0 bottom-0 -z-1">
             <Image
-              src="/images/hero/hero-image.png"
+              src={getImgPath("/images/hero/hero-image.png")}
               alt="heroimage"
               width={800}
               height={0}

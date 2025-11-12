@@ -3,6 +3,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Blog } from "@/app/types/data/blog";
+import { getImgPath } from "@/utils/pathUtils";
 
 const BlogCard: FC<{ blog: Blog }> = ({ blog }) => {
     const { title, coverImage, excerpt, date, slug } = blog;
@@ -10,7 +11,7 @@ const BlogCard: FC<{ blog: Blog }> = ({ blog }) => {
         <Link href={`/blogs/${slug}`} aria-label="blog cover 5xl:h-full 5xl:inline-block" className="flex gap-4 group">
             <div className="overflow-hidden rounded-lg flex-shrink-0 w-52 h-48">
                 <Image
-                    src={coverImage!}
+                    src={getImgPath(coverImage!)}
                     alt="image"
                     className="transition group-hover:scale-125 w-full h-full object-cover"
                         width={190}

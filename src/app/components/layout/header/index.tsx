@@ -7,6 +7,7 @@ import Image from "next/image";
 import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
 import MobileHeaderLink from "./navigation/MobileHeaderLink";
+import { getDataPath, getImgPath } from "@/utils/pathUtils";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
@@ -65,7 +66,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/data/layoutdata.json')
+        const res = await fetch(getDataPath('/data/layoutdata.json'))
         if (!res.ok) throw new Error('Failed to fetch')
 
         const data = await res.json()
@@ -121,7 +122,7 @@ const Header: React.FC = () => {
           {user?.user ? (
             <>
               <div className="relative group flex items-center justify-center">
-                <Image src={"/images/avatar/avatar_1.jpg"} alt="avatar" width={35} height={35} className="rounded-full" />
+                <Image src={getImgPath("/images/avatar/avatar_1.jpg")} alt="avatar" width={35} height={35} className="rounded-full" />
                 <p
                   className="absolute w-fit text-sm font-medium text-center z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-primary text-white py-1 px-2 min-w-28 rounded-lg shadow-2xl top-full left-1/2 transform -translate-x-1/2 mt-3"
                 >

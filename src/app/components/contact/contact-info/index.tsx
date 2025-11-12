@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { getImgPath } from "@/utils/pathUtils";
 
 const ContactInfo = () => {
   return (
@@ -9,7 +10,7 @@ const ContactInfo = () => {
           <div className="flex md:flex-row flex-col lg:items-center items-start justify-center md:gap-28 gap-8">
             <div className="flex sm:flex-row flex-col items-start sm:gap-8 gap-4">
               <div className="bg-primary/20 w-3.75 h-3.75 flex items-center justify-center rounded-full">
-                <i className="bg-[url('/images/contact-page/email.svg')] bg-no-repeat bg-contain w-8 h-8 inline-block"></i>
+                <i style={{ backgroundImage: `url('${getImgPath("/images/contact-page/email.svg")}')` }} className="bg-no-repeat bg-contain w-8 h-8 inline-block"></i>
               </div>
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
@@ -24,7 +25,7 @@ const ContactInfo = () => {
             </div>
             <div className="flex sm:flex-row flex-col items-start sm:gap-8 gap-4">
               <div className="bg-primary/20 w-3.75 h-3.75 flex items-center justify-center rounded-full">
-                <i className="bg-[url('/images/contact-page/Career.svg')] bg-no-repeat bg-contain w-9 h-9 inline-block"></i>
+                <i style={{ backgroundImage: `url('${getImgPath("/images/contact-page/Career.svg")}')` }} className="bg-no-repeat bg-contain w-9 h-9 inline-block"></i>
               </div>
               <div className="flex md:flex-col sm:flex-row flex-col md:items-start sm:items-center items-start h-full justify-between">
                 <div>
