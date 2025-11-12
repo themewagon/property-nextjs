@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { getImgPath } from "@/utils/pathUtils";
 
 type Props = {
     params: { slug: string };
@@ -98,7 +99,7 @@ export default async function Post({ params }: any) {
                         </div>
                         <div className="flex items-center md:justify-center justify-start gap-6 col-span-4 pt-4 md:pt-0">
                             <Image
-                                src={post.authorImage}
+                                src={getImgPath(post.authorImage)}
                                 alt="image"
                                 className="bg-no-repeat bg-contain inline-block rounded-full !w-20 !h-20"
                                 width={40}
@@ -121,7 +122,7 @@ export default async function Post({ params }: any) {
                             <div
                                 className="z-20 mb-16 h-80 overflow-hidden rounded md:h-25 lg:h-31.25">
                                 <Image
-                                    src={post.coverImage}
+                                    src={getImgPath(post.coverImage)}
                                     alt="image"
                                     width={1170}
                                     height={766}
@@ -132,7 +133,23 @@ export default async function Post({ params }: any) {
                             <div className="-mx-4 flex flex-wrap">
                                 <div className="w-full px-4 lg:w-8/12">
                                     <div className="blog-details xl:pr-10">
-                                        <Markdown>{post.content}</Markdown>
+                                        <Markdown
+                                            components={{
+                                                img: ({ src, alt, ...props }: any) => {
+                                                    return (
+                                                        <Image
+                                                            src={getImgPath(src || '')}
+                                                            alt={alt || ''}
+                                                            width={800}
+                                                            height={500}
+                                                            className="w-full h-auto rounded-lg my-4"
+                                                        />
+                                                    );
+                                                },
+                                            }}
+                                        >
+                                            {post.content}
+                                        </Markdown>
                                     </div>
                                 </div>
                                 <div className="w-full px-4 lg:w-4/12">
