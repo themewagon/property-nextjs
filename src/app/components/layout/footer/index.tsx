@@ -162,6 +162,21 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="border-t border-border dark:border-dark_border py-4">
+        <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-gray text-sm">
+            Distributed by{" "}
+            <a
+              href="https://themewagon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-blue-400 transition-colors"
+            >
+              ThemeWagon
+            </a>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };
