@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import SocialSignUp from "../social-button/SocialSignUp";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Loader from "../../shared/Loader";
+import { useState } from "react";
 import Logo from "../../layout/header/logo";
+import Loader from "../../shared/Loader";
+import SocialSignUp from "../social-button/SocialSignUp";
 const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -22,13 +22,15 @@ const SignUp = () => {
   // Validation functions
   const validateName = (name: string) => {
     if (!name.trim()) return "Name is required";
-    if (!/^[a-zA-Z\s]{3,}$/.test(name)) return "Name must be at least 3 characters and contain only letters";
+    if (!/^[a-zA-Z\s]{3,}$/.test(name))
+      return "Name must be at least 3 characters and contain only letters";
     return "";
   };
 
   const validateEmail = (email: string) => {
     if (!email.trim()) return "Email is required";
-    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return "Enter a valid email address";
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email))
+      return "Enter a valid email address";
     return "";
   };
 
@@ -45,9 +47,10 @@ const SignUp = () => {
     // Validate on change
     setErrors((prev) => ({
       ...prev,
-      [name]: name === "name"
-        ? validateName(value)
-        : name === "email"
+      [name]:
+        name === "name"
+          ? validateName(value)
+          : name === "email"
           ? validateEmail(value)
           : validatePassword(value),
     }));
@@ -141,11 +144,19 @@ const SignUp = () => {
 
           <p className="text-midnight_text dark:text-white mb-4 text-base">
             By creating an account you are agree with our{" "}
-            <a href="/#" className="text-midnight_text dark:text-white hover:text-primary dark:hover:text-primary">
+            <a
+              href="#!"
+              onClick={(e) => e.preventDefault()}
+              className="text-midnight_text dark:text-white hover:text-primary dark:hover:text-primary"
+            >
               Privacy
             </a>{" "}
             and{" "}
-            <a href="/#" className="text-midnight_text dark:text-white hover:text-primary dark:hover:text-primary">
+            <a
+              href="#!"
+              onClick={(e) => e.preventDefault()}
+              className="text-midnight_text dark:text-white hover:text-primary dark:hover:text-primary"
+            >
               Policy
             </a>
           </p>
