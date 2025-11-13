@@ -1,12 +1,13 @@
 "use client";
+import { PropertyContext } from "@/context-api/PropertyContext";
+import { getImgPath } from "@/utils/pathUtils";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from 'react';
-import { PropertyContext } from '@/context-api/PropertyContext';
-import { getImgPath } from '@/utils/pathUtils';
+import { useContext } from "react";
 
 const Footer = () => {
   const { updateFilter } = useContext(PropertyContext)!;
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="relative z-10 bg-midnight_text dark:bg-semidark">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md pt-10 pb-5 px-0 sm:px-6 lg:px-8">
@@ -32,7 +33,8 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <a
                   aria-label="social link"
-                  href="/#"
+                  href="#!"
+                  onClick={(e) => e.preventDefault()}
                   className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
                 >
                   <svg
@@ -48,7 +50,8 @@ const Footer = () => {
                 </a>
                 <a
                   aria-label="social link"
-                  href="/#"
+                  href="#!"
+                  onClick={(e) => e.preventDefault()}
                   className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
                 >
                   <svg
@@ -61,11 +64,11 @@ const Footer = () => {
                   >
                     <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                   </svg>
-
                 </a>
                 <a
                   aria-label="social link"
-                  href="/#"
+                  href="#!"
+                  onClick={(e) => e.preventDefault()}
                   className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
                 >
                   <svg
@@ -87,17 +90,26 @@ const Footer = () => {
               </h4>
               <ul>
                 <li>
-                  <Link href="/contact" className="mb-3 inline-block text-base text-gray hover:text-white">
+                  <Link
+                    href="/contact"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Contact Support
                   </Link>
                 </li>
                 <li>
-                  <Link href="/properties/properties-list" className="mb-3 inline-block text-base text-gray hover:text-white">
+                  <Link
+                    href="/properties/properties-list"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Properties
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blogs" className="mb-3 inline-block text-base text-gray hover:text-white">
+                  <Link
+                    href="/blogs"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Blog
                   </Link>
                 </li>
@@ -108,23 +120,35 @@ const Footer = () => {
                 Popular Searches
               </h4>
               <ul>
-                <li onClick={() => updateFilter('category', 'apartment')}>
-                  <Link href="/properties/properties-list?category=apartment" className="mb-3 inline-block text-base text-gray hover:text-white">
+                <li onClick={() => updateFilter("category", "apartment")}>
+                  <Link
+                    href="/properties/properties-list?category=apartment"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Apartment for Rent
                   </Link>
                 </li>
-                <li onClick={() => updateFilter('category', 'house')}>
-                  <Link href="/properties/properties-list?category=house" className="mb-3 inline-block text-base text-gray hover:text-white">
+                <li onClick={() => updateFilter("category", "house")}>
+                  <Link
+                    href="/properties/properties-list?category=house"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     House for Buy
                   </Link>
                 </li>
-                <li onClick={() => updateFilter('category', 'office')}>
-                  <Link href="/properties/properties-list?category=office" className="mb-3 inline-block text-base text-gray hover:text-white">
+                <li onClick={() => updateFilter("category", "office")}>
+                  <Link
+                    href="/properties/properties-list?category=office"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Offices for Buy
                   </Link>
                 </li>
-                <li onClick={() => updateFilter('category', 'shop')}>
-                  <Link href="/properties/properties-list?category=shop" className="mb-3 inline-block text-base text-gray hover:text-white">
+                <li onClick={() => updateFilter("category", "shop")}>
+                  <Link
+                    href="/properties/properties-list?category=shop"
+                    className="mb-3 inline-block text-base text-gray hover:text-white"
+                  >
                     Shop for Rent
                   </Link>
                 </li>
@@ -139,17 +163,25 @@ const Footer = () => {
             <div className="flex lg:flex-nowrap flex-wrap lg:flex-row lg:gap-11 gap-4 text-base sm:text-lg md:text-xl text-black text-opacity-50">
               <p className="text-white">
                 Phone :
-                <Link href="#" className="text-gray hover:text-white"> +(690) 2560 0020</Link>
+                <Link href="#" className="text-gray hover:text-white">
+                  {" "}
+                  +(690) 2560 0020
+                </Link>
               </p>
               <p className="text-white">
                 Email :
-                <Link href="#" className="text-gray hover:text-white"> real@property.com</Link>
+                <Link href="#" className="text-gray hover:text-white">
+                  {" "}
+                  real@property.com
+                </Link>
               </p>
             </div>
           </div>
           <div className="max-w-lg w-full">
             <div className="flex justify-center lg:justify-end">
-              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white">Newsletter</p>
+              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white">
+                Newsletter
+              </p>
               <input
                 type="text"
                 className="py-3 dark:bg-darkmode dark:text-gray !rounded-r-none border border-transparent dark:border-dark_border dark:focus:border-primary focus-visible:outline-none rounded-l-lg px-3 w-full sm:w-auto "
@@ -164,6 +196,18 @@ const Footer = () => {
       </div>
       <div className="border-t border-border dark:border-dark_border py-4">
         <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-gray text-sm mb-2">
+            © Copyright {currentYear}. All rights reserved by{" "}
+            <a
+              href="https://getnextjstemplates.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-blue-400 transition-colors"
+            >
+              GetNextJs Themes
+            </a>
+            .
+          </p>
           <p className="text-center text-gray text-sm">
             Distributed by{" "}
             <a
